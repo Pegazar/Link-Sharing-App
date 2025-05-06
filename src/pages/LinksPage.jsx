@@ -31,6 +31,7 @@ const LinksPage = () => {
     setSavedLinks,
   } = linkTools;
 
+
   return (
     <div className="relative h-full flex flex-col">
       <div
@@ -103,9 +104,8 @@ const LinksPage = () => {
                     <input
                       type="text"
                       placeholder="e.g. https://github.com/username"
-                      className={`w-full py-2 pl-10 pr-3 border focus:ring-1 focus:ring-[#633CFF] ${
-                        urlHasError ? "border-red-500" : "border-gray-300"
-                      } outline-0 bg-white rounded-lg font-medium`}
+                      className={`w-full py-2 pl-10 pr-3 border focus:ring-1 focus:ring-[#633CFF] ${urlHasError ? "border-red-500" : "border-gray-300"
+                        } outline-0 bg-white rounded-lg font-medium`}
                       value={link.url}
                       onChange={(e) =>
                         updateLink(link.id, "url", e.target.value)

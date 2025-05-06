@@ -6,7 +6,6 @@ const LinkSaveButton = ({
   links,
   isValidURL,
   doesURLMatchPlatform,
-  setSavedLinks,
 }) => {
   const handleSave = () => {
     const allValid = links.every(
@@ -15,16 +14,6 @@ const LinkSaveButton = ({
         link.url &&
         isValidURL(link.url) &&
         doesURLMatchPlatform(link.url, link.platform)
-    );
-
-    setSavedLinks(
-      links.filter(
-        (link) =>
-          link.platform &&
-          link.url &&
-          isValidURL(link.url) &&
-          doesURLMatchPlatform(link.url, link.platform)
-      )
     );
 
     if (!allValid) {

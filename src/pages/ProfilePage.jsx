@@ -1,7 +1,7 @@
 import React from "react";
 import FormField from "../ui/FormField";
 import { UploadImageIcon, CloseXIcon } from "../assets/svg/svgicons";
-import useProfile from "../hooks/useProfile";
+import { useOutletContext } from "react-router-dom";
 
 const ProfilePage = () => {
   const {
@@ -11,7 +11,7 @@ const ProfilePage = () => {
     removeImage,
     triggerFileInput,
     updateField,
-  } = useProfile();
+  } = useOutletContext();
 
   return (
     <div className="relative h-full flex flex-col">
@@ -24,7 +24,7 @@ const ProfilePage = () => {
           Add your details to create a personal touch to your profile.
         </p>
 
-        <div className="flex flex-col gap-6">
+        <form className="flex flex-col gap-6">
           <div className="flex items-center gap-2 bg-gray-100 rounded-lg p-6">
             <label className="text-sm font-medium text-[#757575] w-1/3">
               Profile picture
@@ -46,6 +46,7 @@ const ProfilePage = () => {
                       <span className="text-white">Change Image</span>
                     </div>
                     <button
+                      type="button"
                       onClick={(e) => {
                         e.stopPropagation();
                         removeImage();
@@ -104,12 +105,14 @@ const ProfilePage = () => {
               onChange={(e) => updateField("email", e.target.value)}
             />
           </div>
-        </div>
+        </form>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 bg-white w-full rounded-b-xl">
         <div className="border-t border-gray-200 pt-4 pb-4 px-8 flex justify-end">
-          <button className="bg-[#633CFF] text-white font-semibold py-3 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors">
+          <button 
+            className="bg-[#633CFF] text-white font-semibold py-3 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors"
+          >
             Save
           </button>
         </div>
