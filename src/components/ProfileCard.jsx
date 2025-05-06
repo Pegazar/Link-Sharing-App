@@ -19,7 +19,13 @@ const ProfileCard = ({ linkTools, savedLinks, profile }) => {
     );
   };
 
-  const displayEmail = profile?.email || null;
+  const displayName = (profile.firstName || profile.lastName)
+    ? `${profile.firstName || ''} ${profile.lastName || ''}`.trim()
+    : "";
+
+  const displayEmail = profile.email || "";
+
+  console.log("ProfileCard rendering with:", { displayName, displayEmail, profile });
 
   return (
     <div className="bg-white rounded-xl p-10 h-full flex items-center justify-center">
@@ -28,7 +34,7 @@ const ProfileCard = ({ linkTools, savedLinks, profile }) => {
 
         <div className="relative z-10 flex flex-col items-center justify-center px-12 py-16 h-full">
           <div className="text-center mb-10 shrink-0">
-            {profile?.image ? (
+            {profile.image ? (
               <div className="w-24 h-24 rounded-full mx-auto mb-5 overflow-hidden">
                 <img
                   src={profile.image}
@@ -40,7 +46,11 @@ const ProfileCard = ({ linkTools, savedLinks, profile }) => {
               <div className="w-24 h-24 bg-[#EEEEEE] rounded-full mx-auto mb-5"></div>
             )}
 
-            <div className="w-[160px] h-[16px] bg-[#EEEEEE] rounded-lg mx-auto mb-3"></div>
+            {displayName ? (
+              <div className="text-lg font-bold mb-3">{displayName}</div>
+            ) : (
+              <div className="w-[160px] h-[16px] bg-[#EEEEEE] rounded-lg mx-auto mb-3"></div>
+            )}
 
             {displayEmail ? (
               <div className="text-sm text-gray-500">{displayEmail}</div>
@@ -74,14 +84,12 @@ const ProfileCard = ({ linkTools, savedLinks, profile }) => {
             })}
 
             {savedLinks.length === 0 &&
-              Array.from({ length: Math.max(0, 5 - validLinks.length) }).map(
-                (_, index) => (
-                  <div
-                    key={index}
-                    className="bg-[#EEEEEE] h-[40px] p-3 rounded-md w-full"
-                  ></div>
-                )
-              )}
+              [...Array(Math.max(0, 5 - validLinks.length))].map((_, i) => (
+                <div
+                  key={i}
+                  className="bg-[#EEEEEE] h-[40px] p-3 rounded-md w-full"
+                ></div>
+              ))}
           </div>
         </div>
       </div>

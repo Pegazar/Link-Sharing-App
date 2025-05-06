@@ -13,6 +13,10 @@ const ProfilePage = () => {
     updateField,
   } = useOutletContext();
 
+  const handleInputChange = (field) => (e) => {
+    updateField(field, e.target.value);
+  };
+
   return (
     <div className="relative h-full flex flex-col">
       <div
@@ -88,21 +92,21 @@ const ProfilePage = () => {
               required
               placeholder="e.g. John"
               value={profile.firstName}
-              onChange={(e) => updateField("firstName", e.target.value)}
+              onChange={handleInputChange('firstName')}
             />
             <FormField
               label="Last name"
               required
               placeholder="e.g. Doe"
               value={profile.lastName}
-              onChange={(e) => updateField("lastName", e.target.value)}
+              onChange={handleInputChange("lastName")}
             />
             <FormField
               label="Email"
               type="email"
               placeholder="e.g. john@example.com"
               value={profile.email}
-              onChange={(e) => updateField("email", e.target.value)}
+              onChange={handleInputChange("email")}
             />
           </div>
         </form>

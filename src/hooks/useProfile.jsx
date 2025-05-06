@@ -1,62 +1,31 @@
-import { useRef, useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const STORAGE_KEY = "userProfile";
-
-const defaultProfile = {
-  image: "",
-  firstName: "",
-  lastName: "",
-  email: "",
-};
 
 const useProfile = () => {
   const fileInputRef = useRef(null);
 
   const [profile, setProfile] = useState(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) return defaultProfile;
+    if (!stored) return { image: "", firstName: "", lastName: "", email: "" };
 
     try {
       const parsed = JSON.parse(stored);
-      return { ...defaultProfile, ...parsed }; // Eksik alan varsa tamamla
+      return {
+        image: parsed.image || "",
+        firstName: parsed.firstName || "",
+        lastName: parsed.lastName || "",
+        email: parsed.email || ""
+      };
     } catch (err) {
-      console.error("Profil verisi okunamadı:", err);
-      return defaultProfile;
+      console.error("Failed to read profile data:", err);
+      return { image: "", firstName: "", lastName: "", email: "" };
     }
   });
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
-    window.dispatchEvent(new CustomEvent("profileUpdated", { detail: profile }));
-  }, [profile]);
-
-  useEffect(() => {
-    const handleStorageChange = (e) => {
-      if (e.key === STORAGE_KEY) {
-        try {
-          const newProfile = JSON.parse(e.newValue);
-          if (JSON.stringify(newProfile) !== JSON.stringify(profile)) {
-            setProfile(newProfile);
-          }
-        } catch (err) {
-          console.error("localStorage verisi okunamadı:", err);
-        }
-      }
-    };
-
-    const handleCustomEvent = (e) => {
-      if (JSON.stringify(e.detail) !== JSON.stringify(profile)) {
-        setProfile(e.detail);
-      }
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-    window.addEventListener("profileUpdated", handleCustomEvent);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-      window.removeEventListener("profileUpdated", handleCustomEvent);
-    };
+    console.log("Profile updated and saved:", profile);
   }, [profile]);
 
   const handleImageChange = (e) => {
@@ -82,7 +51,11 @@ const useProfile = () => {
   };
 
   const updateField = (field, value) => {
-    setProfile((prev) => ({ ...prev, [field]: value }));
+    setProfile((prev) => {
+      const updated = { ...prev, [field]: value };
+      console.log(`Field ${field} updated to: ${value}`, updated);
+      return updated;
+    });
   };
 
   return {

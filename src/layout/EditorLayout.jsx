@@ -5,11 +5,12 @@ import { Outlet } from "react-router-dom";
 import useLinks from "../hooks/useLinks";
 import useProfile from "../hooks/useProfile";
 
+
 const EditorLayout = () => {
   const linkTools = useLinks();
-  const [savedLinks, setSavedLinks] = useState([]);
   const profileHook = useProfile();
   const { profile } = profileHook;
+  const [savedLinks, setSavedLinks] = useState([]);
 
   return (
     <div className="min-h-screen container mx-auto flex flex-col gap-4 py-4">
