@@ -28,6 +28,7 @@ const LinksPage = () => {
     removeLink,
     updateLink,
     platforms,
+    saveLinks,
     setSavedLinks,
   } = linkTools;
 
@@ -129,6 +130,7 @@ const LinksPage = () => {
 
       <LinkSaveButton
         links={links}
+        saveLinks={saveLinks}
         isValidURL={isValidURL}
         doesURLMatchPlatform={doesURLMatchPlatform}
         setSavedLinks={setSavedLinks}

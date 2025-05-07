@@ -4,10 +4,12 @@ import { ExclamationIcon, IconChangesSaved } from "../assets/svg/svgicons";
 
 const LinkSaveButton = ({
   links,
+  saveLinks,
   isValidURL,
   doesURLMatchPlatform,
 }) => {
   const handleSave = () => {
+    saveLinks();
     const allValid = links.every(
       (link) =>
         link.platform &&

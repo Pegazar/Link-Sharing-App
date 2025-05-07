@@ -1,9 +1,102 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowRightIcon } from "../assets/svg/svgicons";
+import useProfile from "../hooks/useProfile";
+import useLinks from "../hooks/useLinks";
+import { platforms } from "../data/platforms";
 
 const PreviewPage = () => {
-  return (
-    <div className='min-h-screen'>PreviewPage</div>
-  )
-}
+  const { profile } = useProfile();
+  const { links } = useLinks();
 
-export default PreviewPage
+  const handleShareLink = () => {
+    alert("Link Shared!");
+  };
+
+  const getPlatformData = (platformId) =>
+    platforms.find((p) => p.id === platformId) || {
+      color: "bg-gray-800",
+      Icon: null,
+    };
+
+  return (
+    <div className="flex justify-center min-h-[50vh] rounded-b-4xl py-4 bg-[#633CFF] relative">
+      <div className="container mx-auto">
+        <div className="flex justify-between items-center bg-white rounded-xl p-6">
+          <Link
+            className="border border-[#633CFF] text-[#633CFF] font-semibold px-6 py-3 rounded-lg hover:bg-[#EFEBFF] transition-colors"
+            to="/links"
+          >
+            Back to Editor
+          </Link>
+          <button
+            className="bg-[#633CFF] text-white font-semibold py-3 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors"
+            onClick={handleShareLink}
+          >
+            Share Link
+          </button>
+        </div>
+
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-[325px] rounded-2xl shadow-lg overflow-y-auto p-10">
+          <div className="flex flex-col items-center mb-8">
+            {profile.image ? (
+              <img
+                src={profile.image}
+                alt="Profile"
+                className="w-24 h-24 rounded-full object-cover border-4 border-[#633CFF]"
+              />
+            ) : (
+              <div className="w-24 h-24 rounded-full bg-[#EEEEEE] flex items-center justify-center"></div>
+            )}
+
+            {profile.firstName && profile.lastName ? (
+              <h1 className="text-2xl font-bold mt-6 mb-3">
+                {profile.firstName} {profile.lastName}
+              </h1>
+            ) : (
+              <div className="w-[160px] h-[16px] bg-[#EEEEEE] rounded-lg mx-auto mt-6 mb-3"></div>
+            )}
+
+            {profile.email ? (
+              <p className="text-gray-500">{profile.email}</p>
+            ) : (
+              <div className="w-[80px] h-[10px] bg-[#EEEEEE] rounded mx-auto"></div>
+            )}
+          </div>
+
+          <div
+            className="flex flex-col gap-4 max-h-[300px] overflow-y-auto"
+            style={{ scrollbarWidth: "none" }}
+          >
+            {links.length > 0 ? (
+              links.map((link) => {
+                const { color, name, Icon } = getPlatformData(link.platform);
+                return (
+                  <a
+                    key={link.id}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex items-center justify-between p-4 rounded-lg hover:opacity-80 transition-opacity ${color}`}
+                  >
+                    <div className="flex items-center gap-2">
+                      {Icon && <Icon className="w-5 h-5 text-white" />}
+                      <span className="text-white font-medium">{name}</span>
+                    </div>
+                    <ArrowRightIcon className="w-5 h-5 text-white" />
+                  </a>
+                );
+              })
+            ) : (
+              <div className="text-center p-6 bg-gray-100 rounded-lg">
+                <p className="text-gray-500">No links added yet</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PreviewPage;

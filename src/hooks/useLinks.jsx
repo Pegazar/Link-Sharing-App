@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import platforms from '../data/platforms';
+import { useState } from "react";
+import platforms from "../data/platforms";
 
-const STORAGE_KEY = 'linkSharingAppLinks';
+const STORAGE_KEY = "linkSharingAppLinks";
 
 const useLinks = () => {
   const [links, setLinks] = useState(() => {
@@ -9,13 +9,9 @@ const useLinks = () => {
     return savedLinks ? JSON.parse(savedLinks) : [];
   });
 
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(links));
-  }, [links]);
-
   const addNewLink = () => {
     const newId = links.length > 0 ? Math.max(...links.map(link => link.id)) + 1 : 1;
-    setLinks([...links, { id: newId, platform: '', url: '' }]);
+    setLinks([...links, { id: newId, platform: "", url: "" }]);
   };
 
   const removeLink = (id) => {
@@ -23,14 +19,16 @@ const useLinks = () => {
   };
 
   const updateLink = (id, field, value) => {
-    setLinks(links.map(link =>
-      link.id === id ? { ...link, [field]: value } : link
-    ));
+    setLinks(links.map(link => link.id === id ? { ...link, [field]: value } : link));
   };
 
   const clearLinks = () => {
     localStorage.removeItem(STORAGE_KEY);
     setLinks([]);
+  };
+
+  const saveLinks = () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(links));
   };
 
   return {
@@ -39,6 +37,7 @@ const useLinks = () => {
     removeLink,
     updateLink,
     clearLinks,
+    saveLinks,
     platforms
   };
 };

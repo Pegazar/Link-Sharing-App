@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 
 const STORAGE_KEY = "userProfile";
 
@@ -18,15 +18,9 @@ const useProfile = () => {
         email: parsed.email || ""
       };
     } catch (err) {
-      console.error("Failed to read profile data:", err);
       return { image: "", firstName: "", lastName: "", email: "" };
     }
   });
-
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
-    console.log("Profile updated and saved:", profile);
-  }, [profile]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -53,9 +47,12 @@ const useProfile = () => {
   const updateField = (field, value) => {
     setProfile((prev) => {
       const updated = { ...prev, [field]: value };
-      console.log(`Field ${field} updated to: ${value}`, updated);
       return updated;
     });
+  };
+
+  const saveProfile = () => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
   };
 
   return {
@@ -66,6 +63,7 @@ const useProfile = () => {
     removeImage,
     triggerFileInput,
     updateField,
+    saveProfile
   };
 };
 

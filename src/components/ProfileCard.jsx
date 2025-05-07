@@ -25,8 +25,6 @@ const ProfileCard = ({ linkTools, savedLinks, profile }) => {
 
   const displayEmail = profile.email || "";
 
-  console.log("ProfileCard rendering with:", { displayName, displayEmail, profile });
-
   return (
     <div className="bg-white rounded-xl p-10 h-full flex items-center justify-center">
       <div className="relative w-full max-w-[320px] h-[605px]">
@@ -47,9 +45,9 @@ const ProfileCard = ({ linkTools, savedLinks, profile }) => {
             )}
 
             {displayName ? (
-              <div className="text-lg font-bold mb-3">{displayName}</div>
+              <div className="text-lg font-bold mb-2">{displayName}</div>
             ) : (
-              <div className="w-[160px] h-[16px] bg-[#EEEEEE] rounded-lg mx-auto mb-3"></div>
+              <div className="w-[160px] h-[16px] font- bg-[#EEEEEE] rounded-lg mx-auto mb-2"></div>
             )}
 
             {displayEmail ? (

@@ -1,11 +1,13 @@
 import React from "react";
 import FormField from "../ui/FormField";
-import { UploadImageIcon, CloseXIcon } from "../assets/svg/svgicons";
+import { UploadImageIcon, TrashIcon } from "../assets/svg/svgicons";
 import { useOutletContext } from "react-router-dom";
+import ProfileSaveButton from "../ui/ProfileSaveButton";
 
 const ProfilePage = () => {
   const {
     profile,
+    saveProfile,
     fileInputRef,
     handleImageChange,
     removeImage,
@@ -55,10 +57,10 @@ const ProfilePage = () => {
                         e.stopPropagation();
                         removeImage();
                       }}
-                      className="absolute top-2 right-2 bg-white rounded-full p-1 shadow hover:bg-gray-100 z-10"
+                      className="absolute top-2 right-2 rounded-full p-1 shadow z-10"
                       title="Remove"
                     >
-                      <CloseXIcon className="w-4 h-4 text-gray-500 cursor-pointer" />
+                      <TrashIcon className="w-5 h-5 text-white cursor-pointer" />
                     </button>
                   </>
                 ) : (
@@ -113,13 +115,7 @@ const ProfilePage = () => {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 bg-white w-full rounded-b-xl">
-        <div className="border-t border-gray-200 pt-4 pb-4 px-8 flex justify-end">
-          <button 
-            className="bg-[#633CFF] text-white font-semibold py-3 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors"
-          >
-            Save
-          </button>
-        </div>
+        <ProfileSaveButton profile={profile} saveProfile={saveProfile} />
       </div>
     </div>
   );
