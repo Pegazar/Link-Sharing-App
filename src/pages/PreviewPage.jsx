@@ -1,16 +1,33 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRightIcon } from "../assets/svg/svgicons";
+import { ArrowRightIcon, IconChangesSaved } from "../assets/svg/svgicons";
 import useProfile from "../hooks/useProfile";
 import useLinks from "../hooks/useLinks";
 import { platforms } from "../data/platforms";
+import { toast } from "react-toastify";
 
 const PreviewPage = () => {
   const { profile } = useProfile();
   const { links } = useLinks();
 
   const handleShareLink = () => {
-    alert("Link Shared!");
+    const shareUrl = `https://link-sharing-app-tan.vercel.app/`;
+
+    navigator.clipboard
+      .writeText(shareUrl)
+      .then(() => {
+        toast.success("Copied", {
+          position: "bottom-center",
+          icon: <IconChangesSaved className="w-4 h-4 text-white" />,
+          style:{
+            background: 'black',
+            color: "white"
+          }
+        });
+      })
+      .catch(() => {
+        toast.error("Link problem");
+      });
   };
 
   const getPlatformData = (platformId) =>
