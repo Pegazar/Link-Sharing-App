@@ -20,11 +20,8 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="relative h-full flex flex-col">
-      <div
-        className="bg-white rounded-xl p-8 overflow-auto"
-        style={{ scrollbarWidth: "none", height: "calc(100vh - 150px)" }}
-      >
+    <div className="relative flex flex-col h-full">
+      <div className="bg-white rounded-xl p-4 sm:p-8 flex-1 overflow-y-auto pb-24">
         <h2 className="text-2xl font-bold mb-4">Profile Details</h2>
         <p className="text-gray-500 mb-6">
           Add your details to create a personal touch to your profile.
@@ -63,7 +60,9 @@ const ProfilePage = () => {
           </div>
         </form>
       </div>
-      <ProfileSaveButton profile={profile} saveProfile={saveProfile} />
+      <div className="absolute bottom-0 left-0 right-0 bg-white p-4 border-t">
+        <ProfileSaveButton profile={profile} saveProfile={saveProfile} />
+      </div>
     </div>
   );
 };
