@@ -22,7 +22,7 @@ const ProfileSaveButton = ({ saveProfile }) => {
   };
 
   return (
-    <div className="rounded-b-xl">
+    <div className="fixed xl:absolute bottom-0 left-0 right-0 bg-white w-full rounded-b-xl">
       <div className="border-t border-gray-200 pt-4 pb-4 px-8 flex justify-end">
         <button
           onClick={handleSave}
