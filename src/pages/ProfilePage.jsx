@@ -38,7 +38,7 @@ const ProfilePage = () => {
             triggerFileInput={triggerFileInput}
             removeImage={removeImage}
           />
-          <div className="flex flex-col gap-4 bg-gray-100 rounded-lg p-6">
+          <div className="flex flex-col gap-4 bg-gray-100 rounded-lg p-6 mb-4 sm:mb-0">
             <FormField
               label="First name"
               required
