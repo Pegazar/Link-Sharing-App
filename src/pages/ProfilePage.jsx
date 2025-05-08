@@ -20,9 +20,9 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="flex-1 overflow-y-auto pb-20">
-        <div className="bg-white rounded-xl p-4 sm:p-8">
+    <div className="relative h-full flex flex-col">
+      <div className="flex-1 overflow-y-auto pb-24">
+        <div className="bg-white rounded-xl p-8">
           <h2 className="text-2xl font-bold mb-4">Profile Details</h2>
           <p className="text-gray-500 mb-6">
             Add your details to create a personal touch to your profile.
@@ -63,9 +63,7 @@ const ProfilePage = () => {
         </div>
       </div>
       
-      <div className="sticky bottom-0 left-0 right-0 bg-white p-4 border-t">
-        <ProfileSaveButton profile={profile} saveProfile={saveProfile} />
-      </div>
+      <ProfileSaveButton profile={profile} saveProfile={saveProfile} />
     </div>
   );
 };
