@@ -13,7 +13,7 @@ const EditorLayout = () => {
   const [savedLinks, setSavedLinks] = useState([]);
 
   return (
-    <div className="min-h-full xl:min-h-screen container mx-auto flex flex-col gap-4 p-4">
+    <div className="min-h-full xl:min-h-screen container mx-auto flex flex-col gap-4 p-4 mt-19 xl:mt-0">
       <Navbar />
       <div className="lg:flex flex-col lg:flex-row gap-4 flex-1 min-h-0">
         <div className="w-1/3 xl:flex-shrink-0 hidden xl:block">
@@ -24,7 +24,7 @@ const EditorLayout = () => {
           />
         </div>
 
-        <div className="flex-1 flex flex-col overflow-hidden bg-white rounded-xl">
+        <div className="flex-1 flex flex-col overflow-hidden bg-white rounded-none xl:rounded-xl">
           <div className="flex-1 overflow-auto">
             <Outlet context={{ ...linkTools, setSavedLinks, ...profileHook }} />
           </div>
