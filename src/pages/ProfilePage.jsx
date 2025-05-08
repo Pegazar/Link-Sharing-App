@@ -20,47 +20,50 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="relative flex flex-col h-full">
-      <div className="bg-white rounded-xl p-4 sm:p-8 flex-1 overflow-y-auto pb-24">
-        <h2 className="text-2xl font-bold mb-4">Profile Details</h2>
-        <p className="text-gray-500 mb-6">
-          Add your details to create a personal touch to your profile.
-        </p>
+    <div className="flex flex-col h-full">
+      <div className="flex-1 overflow-y-auto pb-20">
+        <div className="bg-white rounded-xl p-4 sm:p-8">
+          <h2 className="text-2xl font-bold mb-4">Profile Details</h2>
+          <p className="text-gray-500 mb-6">
+            Add your details to create a personal touch to your profile.
+          </p>
 
-        <form className="flex flex-col gap-6">
-          <ProfileDetails
-            profile={profile}
-            fileInputRef={fileInputRef}
-            handleImageChange={handleImageChange}
-            triggerFileInput={triggerFileInput}
-            removeImage={removeImage}
-          />
-          <div className="flex flex-col gap-4 bg-gray-100 rounded-lg p-6 mb-4 sm:mb-0">
-            <FormField
-              label="First name"
-              required
-              placeholder="e.g. John"
-              value={profile.firstName}
-              onChange={handleInputChange("firstName")}
+          <form className="flex flex-col gap-6">
+            <ProfileDetails
+              profile={profile}
+              fileInputRef={fileInputRef}
+              handleImageChange={handleImageChange}
+              triggerFileInput={triggerFileInput}
+              removeImage={removeImage}
             />
-            <FormField
-              label="Last name"
-              required
-              placeholder="e.g. Doe"
-              value={profile.lastName}
-              onChange={handleInputChange("lastName")}
-            />
-            <FormField
-              label="Email"
-              type="email"
-              placeholder="e.g. john@example.com"
-              value={profile.email}
-              onChange={handleInputChange("email")}
-            />
-          </div>
-        </form>
+            <div className="flex flex-col gap-4 bg-gray-100 rounded-lg p-6 mb-4 sm:mb-0">
+              <FormField
+                label="First name"
+                required
+                placeholder="e.g. John"
+                value={profile.firstName}
+                onChange={handleInputChange("firstName")}
+              />
+              <FormField
+                label="Last name"
+                required
+                placeholder="e.g. Doe"
+                value={profile.lastName}
+                onChange={handleInputChange("lastName")}
+              />
+              <FormField
+                label="Email"
+                type="email"
+                placeholder="e.g. john@example.com"
+                value={profile.email}
+                onChange={handleInputChange("email")}
+              />
+            </div>
+          </form>
+        </div>
       </div>
-      <div className="absolute bottom-0 left-0 right-0 bg-white p-4 border-t">
+      
+      <div className="sticky bottom-0 left-0 right-0 bg-white p-4 border-t">
         <ProfileSaveButton profile={profile} saveProfile={saveProfile} />
       </div>
     </div>
