@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Logo from "../assets/logo-devlinks-large.svg";
 import { Link, useLocation } from "react-router-dom";
 import { LinkIcon, ProfileIcon } from "../assets/svg/svgicons";
+import Preview from "../assets/preview.svg"
+import LogoMobile from "../assets/logo-mobile.svg"
 
 const Navbar = () => {
   const location = useLocation();
@@ -14,7 +16,8 @@ const Navbar = () => {
   return (
     <div className="flex justify-between items-center bg-white rounded-xl p-6">
       <div>
-        <img className="w-36 h-auto" src={Logo} alt="Logo" />
+        <img className="w-36 h-auto hidden md:block" src={Logo} alt="Logo" />
+        <img className="block md:hidden" src={LogoMobile} alt="Mobile Logo" />
       </div>
       <div className="flex items-center justify-center gap-7">
         <Link
@@ -32,7 +35,7 @@ const Navbar = () => {
                 : "text-[#737373] group-hover:text-[#633CFF]"
             }`}
           />
-          <span className="font-semibold group-hover:text-[#633CFF] transition-colors">
+          <span className="font-semibold group-hover:text-[#633CFF] transition-colors hidden md:block">
             Links
           </span>
         </Link>
@@ -52,7 +55,7 @@ const Navbar = () => {
                 : "text-[#737373] group-hover:text-[#633CFF]"
             }`}
           />
-          <span className="font-semibold group-hover:text-[#633CFF] transition-colors">
+          <span className="font-semibold group-hover:text-[#633CFF] transition-colors hidden md:block">
             Profile Details
           </span>
         </Link>
@@ -61,7 +64,8 @@ const Navbar = () => {
         to="/preview"
         className="border border-[#633CFF] text-[#633CFF] font-semibold px-6 py-3 rounded-lg hover:bg-[#EFEBFF] transition-colors"
       >
-        Preview
+        <span className="hidden md:block">Preview</span>
+        <img className="block md:hidden" src={Preview} alt="Preview icon" />
       </Link>
     </div>
   );

@@ -37,7 +37,7 @@ const PreviewPage = () => {
     };
 
   return (
-    <div className="flex justify-center min-h-[50vh] rounded-b-4xl py-4 bg-[#633CFF] relative">
+    <div className="flex justify-center min-h-[50vh] rounded-none sm:rounded-b-4xl p-4 bg-white sm:bg-[#633CFF] relative">
       <div className="container mx-auto">
         <div className="flex justify-between items-center bg-white rounded-xl p-6">
           <Link
