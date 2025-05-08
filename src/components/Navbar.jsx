@@ -14,7 +14,7 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex justify-between items-center bg-white rounded-xl p-6">
+    <div className="sticky top-0 z-20 xl:relative flex justify-between items-center bg-white rounded-xl p-6">
       <div>
         <img className="w-36 h-auto hidden md:block" src={Logo} alt="Logo" />
         <img className="block md:hidden" src={LogoMobile} alt="Mobile Logo" />

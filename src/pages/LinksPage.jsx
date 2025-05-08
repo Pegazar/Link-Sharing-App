@@ -34,7 +34,7 @@ const LinksPage = () => {
   return (
     <div className="relative h-full flex flex-col">
       <div
-        className="bg-white rounded-xl p-8 overflow-auto pb-20"
+        className="bg-white rounded-xl p-8 overflow-auto"
         style={{
           scrollbarWidth: "none",
           height: "calc(100vh - 150px)",
