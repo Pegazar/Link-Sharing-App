@@ -63,8 +63,7 @@ const ProfilePage = () => {
           </div>
         </form>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 bg-white w-full rounded-b-xl">
+      <div className="md:static fixed bottom-0 left-0 w-full bg-white p-4 shadow-md z-10">
         <ProfileSaveButton profile={profile} saveProfile={saveProfile} />
       </div>
     </div>
