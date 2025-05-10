@@ -32,7 +32,7 @@ const ProfilePage = () => {
       <div
         className="flex-1 overflow-y-auto pb-24"
         style={{
-          maxHeight: "calc(100vh - 100px)",
+          maxHeight: "calc(100dvh - 100px)",
         }}
       >
         <div className="bg-white rounded-xl pt-8 px-4 sm:px-8">

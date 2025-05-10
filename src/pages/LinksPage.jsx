@@ -37,7 +37,7 @@ const LinksPage = () => {
         className="bg-white rounded-xl px-8 pt-8 pb-0 xl:pb-8 overflow-y-auto"
         style={{
           scrollbarWidth: "none",
-          maxHeight: "calc(100vh - 200px)",
+          maxHeight: "calc(100dvh - 200px)",
         }}
       >
         <h2 className="text-2xl font-bold mb-4">Customize your links</h2>
