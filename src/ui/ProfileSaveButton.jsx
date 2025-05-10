@@ -1,9 +1,21 @@
 import React from "react";
 import { toast } from "react-toastify";
-import { IconChangesSaved } from "../assets/svg/svgicons";
+import { ExclamationIcon, IconChangesSaved } from "../assets/svg/svgicons";
 
-const ProfileSaveButton = ({ saveProfile }) => {
+const ProfileSaveButton = ({ saveProfile, onValidate }) => {
   const handleSave = () => {
+    if (onValidate && !onValidate()) {
+      toast.error("Please fill in all fields correctly.", {
+        icon: <ExclamationIcon className="w-4 h-4 text-white" />,
+        position: "bottom-center",
+        style: {
+          background: "#FF4D4D",
+          color: "#fff",
+          fontWeight: "500",
+        },
+      });
+      return;
+    }
     saveProfile();
     toast.success("Your changes have been successfully saved!", {
       position: "bottom-center",
@@ -26,7 +38,7 @@ const ProfileSaveButton = ({ saveProfile }) => {
       <div className="border-t border-gray-200 py-6 xl:py-4 px-6 xl:px-8 flex justify-end">
         <button
           onClick={handleSave}
-          className="bg-[#633CFF] w-full sm:w-auto text-white font-semibold py-3 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors"
+          className="bg-[#633CFF] w-full sm:w-auto text-white font-semibold py-2 px-5 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors"
         >
           Save
         </button>

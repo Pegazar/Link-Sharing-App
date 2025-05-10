@@ -34,10 +34,10 @@ const LinksPage = () => {
   return (
     <div className="relative h-full flex flex-col">
       <div
-        className="bg-white rounded-xl p-8 overflow-auto"
+        className="bg-white rounded-xl px-8 pt-8 pb-0 xl:pb-8 overflow-auto"
         style={{
           scrollbarWidth: "none",
-          height: "calc(100vh - 150px)",
+          maxHeight: "calc(100vh - 200px)",
         }}
       >
         <h2 className="text-2xl font-bold mb-4">Customize your links</h2>

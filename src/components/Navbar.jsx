@@ -16,13 +16,13 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-20 xl:relative flex justify-between items-center bg-white rounded-none xl:rounded-xl p-6 border-b xl:border-0 border-gray-200">
       <div>
-        <img className="w-36 h-auto hidden md:block" src={Logo} alt="Logo" />
+        <img className="w-32 h-auto hidden md:block" src={Logo} alt="Logo" />
         <img className="block md:hidden" src={LogoMobile} alt="Mobile Logo" />
       </div>
       <div className="flex items-center justify-center gap-7">
         <Link
           to="/links"
-          className={`group flex items-center gap-2 px-5 py-3 rounded-md ${
+          className={`group flex items-center gap-2 px-5 py-2 rounded-md ${
             activeLink === "/links"
               ? "bg-[#EFEBFF] text-[#633CFF]"
               : "text-[#737373] hover:bg-[#EFEBFF]"
@@ -42,7 +42,7 @@ const Navbar = () => {
 
         <Link
           to="/profile"
-          className={`group flex items-center gap-2 px-5 py-3 rounded-md transition-colors ${
+          className={`group flex items-center gap-2 px-5 py-2 rounded-md transition-colors ${
             activeLink === "/profile"
               ? "bg-[#EFEBFF] text-[#633CFF]"
               : "text-[#737373] hover:bg-[#EFEBFF]"
@@ -62,7 +62,7 @@ const Navbar = () => {
       </div>
       <Link
         to="/preview"
-        className="border border-[#633CFF] text-[#633CFF] font-semibold px-6 py-3 rounded-lg hover:bg-[#EFEBFF] transition-colors"
+        className="border border-[#633CFF] text-[#633CFF] font-semibold px-6 py-2 rounded-lg hover:bg-[#EFEBFF] transition-colors"
       >
         <span className="hidden md:block">Preview</span>
         <img className="block md:hidden" src={Preview} alt="Preview icon" />

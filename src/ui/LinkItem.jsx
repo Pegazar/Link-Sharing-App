@@ -69,9 +69,10 @@ const LinkItem = ({
                   <input
                     type="text"
                     placeholder="e.g. https://github.com/username"
-                    className={`w-full py-2 pl-10 pr-3 border focus:ring-1 focus:ring-[#633CFF] ${
-                      urlHasError ? "border-red-500" : "border-gray-300"
-                    } outline-0 bg-white rounded-lg font-medium`}
+                    className={`w-full py-2 pl-10 pr-3 outline-0 bg-white rounded-lg font-medium ${urlHasError
+                        ? "ring-1 ring-red-500 focus:ring-1 focus:ring-red-500"
+                        : "ring-1 ring-transparent focus:ring-1 focus:ring-[#633CFF]"
+                      }`}
                     value={link.url}
                     onChange={(e) => updateLink(link.id, "url", e.target.value)}
                   />

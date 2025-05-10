@@ -41,13 +41,13 @@ const PreviewPage = () => {
       <div className="container mx-auto">
         <div className="flex justify-between items-center bg-white rounded-xl p-6">
           <Link
-            className="border border-[#633CFF] text-[#633CFF] font-semibold px-6 py-3 rounded-lg hover:bg-[#EFEBFF] transition-colors"
+            className="border border-[#633CFF] text-[#633CFF] font-semibold px-6 py-2 rounded-lg hover:bg-[#EFEBFF] transition-colors"
             to="/links"
           >
             Back to Editor
           </Link>
           <button
-            className="bg-[#633CFF] text-white font-semibold py-3 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors"
+            className="bg-[#633CFF] text-white font-semibold py-2 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors"
             onClick={handleShareLink}
           >
             Share Link
