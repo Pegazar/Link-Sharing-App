@@ -8,10 +8,18 @@ const ProfileSaveButton = ({ saveProfile, onValidate }) => {
       toast.error("Please fill in all fields correctly.", {
         icon: <ExclamationIcon className="w-4 h-4 text-white" />,
         position: "bottom-center",
+        autoClose: 2000,
+        closeButton: false,
         style: {
-          background: "#FF4D4D",
+          background: "#FF4D4F",
           color: "#fff",
+          borderRadius: "5px",
+          fontSize: "14px",
           fontWeight: "500",
+          padding: "8px 16px",
+          width: "325px",
+          height: "25px",
+          boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
         },
       });
       return;
@@ -20,15 +28,18 @@ const ProfileSaveButton = ({ saveProfile, onValidate }) => {
     toast.success("Your changes have been successfully saved!", {
       position: "bottom-center",
       icon: <IconChangesSaved className="w-4 h-4 text-white" />,
+      closeButton: false,
+      autoClose: 2000,
       style: {
         background: "#2C2C2C",
         color: "#fff",
         borderRadius: "5px",
         fontSize: "14px",
         fontWeight: "500",
-        padding: "12px 20px",
-        width: "375px",
-        boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+        padding: "8px 16px",
+        width: "325px",
+        height: "25px",
+        boxShadow: "0 4px 10px rgba(0,0,0,0.15)"
       },
     });
   };

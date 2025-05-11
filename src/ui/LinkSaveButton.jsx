@@ -22,14 +22,17 @@ const LinkSaveButton = ({
       toast.error("Please make sure all links are complete and valid.", {
         position: "bottom-center",
         icon: <ExclamationIcon className="w-4 h-4 text-white" />,
+        closeButton: false,
+        autoClose: 2000,
         style: {
           background: "#FF4D4F",
           color: "#fff",
           borderRadius: "5px",
           fontSize: "14px",
           fontWeight: "500",
-          padding: "12px 20px",
-          width: "375px",
+          padding: "8px 16px",
+          width: "325px",
+          height: "25px",
           boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
         },
       });
@@ -39,15 +42,18 @@ const LinkSaveButton = ({
     toast.success("Your changes have been successfully saved!", {
       position: "bottom-center",
       icon: <IconChangesSaved className="w-4 h-4 text-white" />,
+      closeButton: false,
+      autoClose: 2000,
       style: {
         background: "#2C2C2C",
         color: "#fff",
         borderRadius: "5px",
         fontSize: "14px",
         fontWeight: "500",
-        padding: "12px 20px",
-        width: "375px",
-        boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+        padding: "8px 16px",
+        width: "325px",
+        height: "25px",
+        boxShadow: "0 4px 10px rgba(0,0,0,0.15)"
       },
     });
   };

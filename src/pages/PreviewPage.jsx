@@ -19,9 +19,19 @@ const PreviewPage = () => {
         toast.success("Copied", {
           position: "bottom-center",
           icon: <IconChangesSaved className="w-4 h-4 text-white" />,
+          theme: "dark",
+          closeButton: false,
+          autoClose: 2000,
           style: {
-            background: 'black',
-            color: "white"
+            background: "#2C2C2C",
+            color: "#fff",
+            borderRadius: "5px",
+            fontSize: "14px",
+            fontWeight: "500",
+            padding: "8px 16px",
+            width: "325px",
+            height: "25px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.15)"
           }
         });
       })
@@ -47,7 +57,7 @@ const PreviewPage = () => {
             Back to Editor
           </Link>
           <button
-            className="bg-[#633CFF] text-white font-semibold py-2 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] active:bg-[#3D1EB8] active:scale-95 transition duration-150 ease-in-out"
+            className="bg-[#633CFF] border border-[#633CFF] text-white font-semibold py-2 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] active:bg-[#3D1EB8] active:scale-95 transition duration-150 ease-in-out"
             onClick={handleShareLink}
           >
             Share Link
