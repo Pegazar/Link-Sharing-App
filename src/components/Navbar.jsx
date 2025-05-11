@@ -22,18 +22,16 @@ const Navbar = () => {
       <div className="flex items-center justify-center gap-7">
         <Link
           to="/links"
-          className={`group flex items-center gap-2 px-5 py-2 rounded-md ${
-            activeLink === "/links"
+          className={`group flex items-center gap-2 px-5 py-2 rounded-md ${activeLink === "/links"
               ? "bg-[#EFEBFF] text-[#633CFF]"
               : "text-[#737373] hover:bg-[#EFEBFF]"
-          }`}
+            }`}
         >
           <LinkIcon
-            className={`transition-colors ${
-              activeLink === "/links"
+            className={`transition-colors ${activeLink === "/links"
                 ? "text-[#633CFF]"
                 : "text-[#737373] group-hover:text-[#633CFF]"
-            }`}
+              }`}
           />
           <span className="font-semibold group-hover:text-[#633CFF] transition-colors hidden md:block">
             Links
@@ -42,18 +40,16 @@ const Navbar = () => {
 
         <Link
           to="/profile"
-          className={`group flex items-center gap-2 px-5 py-2 rounded-md transition-colors ${
-            activeLink === "/profile"
+          className={`group flex items-center gap-2 px-5 py-2 rounded-md transition-colors ${activeLink === "/profile"
               ? "bg-[#EFEBFF] text-[#633CFF]"
               : "text-[#737373] hover:bg-[#EFEBFF]"
-          }`}
+            }`}
         >
           <ProfileIcon
-            className={`transition-colors ${
-              activeLink === "/profile"
+            className={`transition-colors ${activeLink === "/profile"
                 ? "text-[#633CFF]"
                 : "text-[#737373] group-hover:text-[#633CFF]"
-            }`}
+              }`}
           />
           <span className="font-semibold group-hover:text-[#633CFF] transition-colors hidden md:block">
             Profile Details
@@ -62,10 +58,10 @@ const Navbar = () => {
       </div>
       <Link
         to="/preview"
-        className="border border-[#633CFF] text-[#633CFF] font-semibold px-6 py-2 rounded-lg hover:bg-[#EFEBFF] transition-colors"
+        className="inline-flex items-center justify-center border border-[#633CFF] text-[#633CFF] font-semibold px-6 py-2 rounded-lg hover:bg-[#EFEBFF] active:scale-95 transition-all duration-150"
       >
         <span className="hidden md:block">Preview</span>
-        <img className="block md:hidden" src={Preview} alt="Preview icon" />
+        <img className="block md:hidden w-5 h-5" src={Preview} alt="Preview icon" />
       </Link>
     </div>
   );

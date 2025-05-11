@@ -14,7 +14,7 @@ const LinkItem = ({
   return (
     <>
       <button
-        className="w-full border-2 border-[#633CFF] text-[#633CFF] font-semibold py-2 cursor-grab rounded-lg hover:bg-[#EFEBFF] transition-colors mb-6"
+        className="w-full border-2 border-[#633CFF] text-[#633CFF] font-semibold py-2 cursor-grab rounded-lg hover:bg-[#EFEBFF] transition-all duration-100 active:scale-95 mb-6"
         onClick={addNewLink}
       >
         + Add new link
@@ -60,6 +60,7 @@ const LinkItem = ({
                   options={platforms}
                   value={link.platform}
                   onChange={(value) => updateLink(link.id, "platform", value)}
+                  openDirection={index === 0 ? "down" : "up"}
                 />
 
                 <label className="block text-sm font-normal mb-1 mt-3">

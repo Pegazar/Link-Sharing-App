@@ -2,7 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { LinkIcon } from "../assets/svg/svgicons";
 
-const CustomSelect = ({ options, value, onChange }) => {
+const CustomSelect = ({ options, value, onChange, openDirection = "down" }) => {
   const [open, setOpen] = useState(false);
   const selected = options.find((opt) => opt.id === value);
 
@@ -29,17 +29,15 @@ const CustomSelect = ({ options, value, onChange }) => {
           strokeWidth="3"
           viewBox="0 0 24 24"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19 9l-7 7-7-7"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
         </svg>
       </div>
 
       {open && (
         <ul
-          className="absolute left-0 right-0 mt-1 bg-white border border-gray-300 outline-0 shadow z-50 rounded-lg max-h-60 overflow-y-auto"
+          className={`absolute left-0 right-0 bg-white z-50 border border-gray-300 shadow rounded-lg max-h-60 overflow-y-auto overflow-visible ${
+            openDirection === "up" ? "bottom-full mb-1" : "top-full mt-1"
+          }`}
           style={{ scrollbarWidth: "none" }}
         >
           {options.map((option) => {
@@ -67,5 +65,6 @@ const CustomSelect = ({ options, value, onChange }) => {
     </div>
   );
 };
+
 
 export default CustomSelect;
