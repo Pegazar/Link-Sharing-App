@@ -4,24 +4,6 @@ import { ExclamationIcon, IconChangesSaved } from "../assets/svg/svgicons";
 
 const ProfileSaveButton = ({ saveProfile, onValidate }) => {
   const handleSave = () => {
-    toast.success("Your changes have been successfully saved!", {
-      position: "bottom-center",
-      icon: <IconChangesSaved className="w-4 h-4 text-white" />,
-      closeButton: false,
-      autoClose: 2000,
-      style: {
-        background: "#2C2C2C",
-        color: "#fff",
-        borderRadius: "5px",
-        fontSize: "14px",
-        fontWeight: "500",
-        padding: "8px 16px",
-        width: "325px",
-        height: "25px",
-        boxShadow: "0 4px 10px rgba(0,0,0,0.15)"
-      },
-    });
-    
     if (onValidate && !onValidate()) {
       toast.error("Please fill in all fields correctly.", {
         icon: <ExclamationIcon className="w-4 h-4 text-white" />,
@@ -43,6 +25,24 @@ const ProfileSaveButton = ({ saveProfile, onValidate }) => {
       return;
     }
     saveProfile();
+
+    toast.success("Your changes have been successfully saved!", {
+      position: "bottom-center",
+      icon: <IconChangesSaved className="w-4 h-4 text-white" />,
+      closeButton: false,
+      autoClose: 2000,
+      style: {
+        background: "#2C2C2C",
+        color: "#fff",
+        borderRadius: "5px",
+        fontSize: "14px",
+        fontWeight: "500",
+        padding: "8px 16px",
+        width: "325px",
+        height: "25px",
+        boxShadow: "0 4px 10px rgba(0,0,0,0.15)"
+      },
+    });
   };
 
   return (
