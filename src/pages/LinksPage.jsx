@@ -36,7 +36,7 @@ const LinksPage = () => {
       <div
         className="bg-white rounded-xl px-8 pt-8 pb-0 xl:pb-8 overflow-y-auto"
         style={{
-          
+          scrollbarWidth: "none",
           maxHeight: "calc(100dvh - 200px)",
         }}
       >

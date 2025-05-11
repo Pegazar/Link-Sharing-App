@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import React from "react";
 import { LinkIcon } from "../assets/svg/svgicons";
 
 const CustomSelect = ({ options, value, onChange, openDirection = "down" }) => {
   const [open, setOpen] = useState(false);
+  const selectRef = useRef(null);
   const selected = options.find((opt) => opt.id === value);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (selectRef.current && !selectRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative w-full">
+    <div className="relative w-full" ref={selectRef}>
       <div
         className="py-2 px-3 border border-gray-300 rounded-lg bg-white cursor-pointer flex items-center justify-between duration-200 hover:border-[#633CFF]"
         onClick={() => setOpen(!open)}
@@ -23,7 +37,9 @@ const CustomSelect = ({ options, value, onChange, openDirection = "down" }) => {
           </span>
         </div>
         <svg
-          className="w-4 h-4 text-[#633CFF]"
+          className={`w-4 h-4 text-[#633CFF] transform transition-transform duration-200 ${
+            open ? "rotate-180" : ""
+          }`}
           fill="none"
           stroke="currentColor"
           strokeWidth="3"
@@ -65,6 +81,5 @@ const CustomSelect = ({ options, value, onChange, openDirection = "down" }) => {
     </div>
   );
 };
-
 
 export default CustomSelect;
