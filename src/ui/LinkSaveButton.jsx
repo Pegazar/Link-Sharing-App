@@ -56,11 +56,12 @@ const LinkSaveButton = ({
     <div className="fixed xl:absolute bottom-0 left-0 right-0 bg-white w-full rounded-b-xl">
       <div className="border-t border-gray-200 py-6 xl:py-4 px-6 xl:px-8 flex justify-end">
         <button
-          className="bg-[#633CFF] w-full sm:w-auto text-white font-semibold py-2 px-5 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors"
+          className="bg-[#633CFF] w-full sm:w-auto text-white font-semibold py-2 px-5 rounded-lg cursor-pointer hover:bg-[#4520CE] active:bg-[#3D1EB8] active:scale-95 transition duration-150 ease-in-out"
           onClick={handleSave}
         >
           Save
         </button>
+
       </div>
     </div>
   );

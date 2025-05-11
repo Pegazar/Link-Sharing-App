@@ -19,7 +19,7 @@ const PreviewPage = () => {
         toast.success("Copied", {
           position: "bottom-center",
           icon: <IconChangesSaved className="w-4 h-4 text-white" />,
-          style:{
+          style: {
             background: 'black',
             color: "white"
           }
@@ -47,11 +47,12 @@ const PreviewPage = () => {
             Back to Editor
           </Link>
           <button
-            className="bg-[#633CFF] text-white font-semibold py-2 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors"
+            className="bg-[#633CFF] text-white font-semibold py-2 px-6 rounded-lg cursor-pointer hover:bg-[#4520CE] active:bg-[#3D1EB8] active:scale-95 transition duration-150 ease-in-out"
             onClick={handleShareLink}
           >
             Share Link
           </button>
+
         </div>
 
         <div className="absolute top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white w-[325px] rounded-2xl shadow-lg overflow-y-auto p-10">
@@ -82,7 +83,7 @@ const PreviewPage = () => {
           </div>
 
           <div
-            className="flex flex-col gap-4 max-h-[300px] overflow-y-auto"
+            className="flex flex-col gap-4 max-h-[200px] overflow-y-auto"
             style={{ scrollbarWidth: "none" }}
           >
             {links.length > 0 ? (

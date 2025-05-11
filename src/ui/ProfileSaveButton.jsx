@@ -38,7 +38,7 @@ const ProfileSaveButton = ({ saveProfile, onValidate }) => {
       <div className="border-t border-gray-200 py-6 xl:py-4 px-6 xl:px-8 flex justify-end">
         <button
           onClick={handleSave}
-          className="bg-[#633CFF] w-full sm:w-auto text-white font-semibold py-2 px-5 rounded-lg cursor-pointer hover:bg-[#4520CE] transition-colors"
+          className="bg-[#633CFF] w-full sm:w-auto text-white font-semibold py-2 px-5 rounded-lg cursor-pointer hover:bg-[#4520CE] active:scale-95 active:bg-[#3D1EB8] transition duration-150 ease-in-out"
         >
           Save
         </button>
